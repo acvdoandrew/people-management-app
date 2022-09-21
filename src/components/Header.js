@@ -4,7 +4,7 @@ function Header(props) {
     return (
         <nav className="nav">
             <Link to="/">
-                <div>People Add</div>
+                <div>People App</div>
             </Link>
         </nav>
     );
