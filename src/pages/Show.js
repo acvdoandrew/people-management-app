@@ -1,16 +1,14 @@
 import { useParams } from 'react-router-dom';
 
-function Show(props) {
+function Show({ people }) {
     const { id } = useParams();
-    // <Route path="/people/:id ...>
-    const person = props.people.find(p => p._id === id);
     
-
     const loading = () => {
         return <h1>Loading ...</h1>;
     };
-
+    
     const loaded = () => {
+        const person = people.find(p => p._id === id);  
         return (
             <section>
                 <h1>{person.name}</h1>
@@ -20,7 +18,7 @@ function Show(props) {
         )
     };
 
-    return props.people ? loaded() : loading();
+    return people ? loaded() : loading();
 
 }
 
