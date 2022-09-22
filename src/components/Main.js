@@ -51,7 +51,7 @@ function Main(props) {
         <main>
             <Routes>
                 <Route path="/" element={<Index people={people} createPeople={createPeople} />} />
-                <Route path="/people/:id" element={<Show />} />
+                <Route path="/people/:id" element={<Show people={people} />} />
             </Routes>
         </main>
     );
