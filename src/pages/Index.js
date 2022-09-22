@@ -20,13 +20,26 @@ function Index(props) {
         return <h1>Loading ...</h1>;
     };
 
-    const handleChange = () => {};
-    const handleSubmit = () => {};
+    const handleChange = (e) => {
+        setNewForm({
+            ...newForm,
+            [e.target.name]: e.target.value
+        });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.createPeople(newForm); // lifting up state
+        setNewForm({
+            name: '',
+            image: '',
+            title: ''
+        });
+    };
 
     return (
         <section>
             { props.people ? loaded() : loading() }
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Name:
                     <input 
                     type="text" 
